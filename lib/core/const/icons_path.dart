@@ -1,0 +1,29 @@
+class IconsPath {
+  static const String eye = "assets/icons/eye.svg";
+  static const String eyeOff = "assets/icons/eye_off.svg";
+  static const String arrowLeft = "assets/icons/arrow_left.svg";
+  static const String arrowRight = "assets/icons/arrow_right.svg";
+  static const String arrowDown = "assets/icons/arrow_down.svg";
+  static const String home = "assets/icons/home.svg";
+  static const String contact = "assets/icons/contact.svg";
+  static const String history = "assets/icons/history.svg";
+  static const String person = "assets/icons/person.svg";
+  static const String edit = "assets/icons/edit.svg";
+  static const String terms = "assets/icons/terms.svg";
+  static const String policy = "assets/icons/policy.svg";
+  static const String notification = "assets/icons/notification.svg";
+  static const String delete = "assets/icons/delete.svg";
+  static const String logout = "assets/icons/logout.svg";
+  static const String security = "assets/icons/security.svg";
+  static const String email = "assets/icons/email.svg";
+  static const String camera = "assets/icons/camera.svg";
+  static const String capsulCircle = "assets/icons/capsul_circle.svg";
+  static const String chat = "assets/icons/chat.svg";
+  static const String userAdd = "assets/icons/user_add.svg";
+  static const String pill = "assets/icons/pill.svg";
+  static const String pill2 = "assets/icons/pill2.svg";
+  static const String pill3 = "assets/icons/pill3.svg";
+  static const String capsul = "assets/icons/capsul.svg";
+  static const String capsul2 = "assets/icons/capsul2.svg";
+  static const String calendar = "assets/icons/calendar.svg";
+}
