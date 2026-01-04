@@ -6,4 +6,12 @@ class DashboardController extends GetxController {
   void changePage(int index) {
     selectedIndex.value = index;
   }
+
+  Future<void> logout() async {
+    // Keep Remember Me data only if user checked it
+    bool keepRemembered = await SharePref.getRememberMe();
+    await SharePref.clearAll(keepRemembered: keepRemembered);
+
+    Get.offAllNamed(AppRoutes.login);
+  }
 }

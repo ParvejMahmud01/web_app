@@ -32,6 +32,16 @@ class SharePref {
   // static String? savedPassword;
   static String? token;
 
+  static Future<void> saveRememberMe(bool value) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_rememberMeKey, value);
+  }
+
+  static Future<bool> getRememberMe() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_rememberMeKey) ?? false;
+  }
+
   static Future<void> saveFcmToken(String token) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     await sharedPreferences.setString(_fcmTokenKey, token);
@@ -73,9 +83,26 @@ class SharePref {
   }
 
   // Get saved email
+  static Future<void> saveEmail(String email) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.setString(_emailKey, email);
+    // print("Role saved: $role"); // Add this to verify the role is saved
+  }
+
   static Future<String?> getSavedEmail() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return sharedPreferences.getString(_emailKey);
+  }
+
+  static Future<void> savePassword(String password) async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    await sharedPreferences.setString(_passwordKey, password);
+    // print("Role saved: $role"); // Add this to verify the role is saved
+  }
+
+  static Future<String?> getSavedPassword() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    return sharedPreferences.getString(_passwordKey);
   }
 
   static Future<String?> getSavedName() async {
@@ -215,18 +242,21 @@ class SharePref {
   }
 
   // Method to clear all saved preferences (clearAll)
-  static Future<void> clearAll() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    await sharedPreferences.remove(_userDataKey);
-    await sharedPreferences.remove(_rememberMeKey);
-    await sharedPreferences.remove(_emailKey);
-    await sharedPreferences.remove(_passwordKey);
-    await sharedPreferences.remove(_tokenKey);
-    await sharedPreferences.remove(_fcmTokenKey);
-    await sharedPreferences.remove(_subcriptionKey);
-    await sharedPreferences.remove(_roleKey);
-    await sharedPreferences.remove(_uid);
-    await sharedPreferences.remove(_idKey);
-    await sharedPreferences.remove(_countryKey);
+  static Future<void> clearAll({bool keepRemembered = true}) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    await prefs.remove(_tokenKey);
+    await prefs.remove(_fcmTokenKey);
+    await prefs.remove(_subcriptionKey);
+    await prefs.remove(_roleKey);
+    await prefs.remove(_uid);
+    await prefs.remove(_idKey);
+    await prefs.remove(_countryKey);
+
+    if (!keepRemembered) {
+      await prefs.remove(_emailKey);
+      await prefs.remove(_passwordKey);
+      await prefs.remove(_rememberMeKey);
+    }
   }
 }

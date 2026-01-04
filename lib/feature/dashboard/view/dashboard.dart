@@ -42,6 +42,40 @@ class DashboardScreen extends StatelessWidget {
                 _navItem(Icons.dashboard, "Dashboard", 0),
                 _navItem(Icons.people, "Users", 1),
                 _navItem(Icons.settings, "Settings", 2),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    controller.logout();
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 4,
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 14,
+                    ),
+                    decoration: BoxDecoration(
+                      color: AppColors.red,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(Icons.logout, color: AppColors.red),
+                        const SizedBox(width: 12),
+                        Text(
+                          "Logut",
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                bottomSizeBox(),
               ],
             ),
           ),

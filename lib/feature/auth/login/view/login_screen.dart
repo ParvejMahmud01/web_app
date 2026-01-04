@@ -101,10 +101,25 @@ class LoginScreen extends StatelessWidget {
                         CustomSubmitButton(
                           text: "Login",
                           onTap: () {
-                            // if (formKey.currentState!.validate()) {
-                            //   Get.toNamed(AppRoutes.dashboard);
-                            // }
-                            Get.toNamed(AppRoutes.dashboard);
+                            if (formKey.currentState!.validate()) {
+                              controller.login();
+                            }
+                          },
+                        ),
+                        bottomSizeBox(),
+                        FutureBuilder<String?>(
+                          future: SharePref.getSavedEmail(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return CustomText(text: 'Loading...');
+                            } else if (snapshot.hasData) {
+                              return CustomText(
+                                text: snapshot.data!,
+                              ); // snapshot.data is String?
+                            } else {
+                              return CustomText(text: ''); // fallback if null
+                            }
                           },
                         ),
                       ],
