@@ -142,7 +142,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     required bool obscureText,
   }) {
     return SizedBox(
-      height: hasError ? getHeight(85) : getHeight(56),
+      height: hasError ? 85 : 56,
       child: TextFormField(
         focusNode: _focusNode,
         controller: widget.controller,

@@ -65,7 +65,7 @@ class CustomSubmitButton extends StatelessWidget {
                 shape: boxShape ?? BoxShape.rectangle,
                 color: Colors.transparent,
               ),
-              height: height ?? getHeight(56),
+              height: height ?? 56,
               width: width ?? double.infinity,
               alignment: Alignment.center,
               child: Row(
