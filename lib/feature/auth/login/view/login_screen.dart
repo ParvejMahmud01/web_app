@@ -52,20 +52,31 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        height: getHeight(24),
-                        width: getHeight(24),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                            getWidth(4, maxWidth: 4),
+                      Obx(
+                        () => Container(
+                          height: getHeight(24),
+                          width: getHeight(24),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(
+                              getWidth(4, maxWidth: 4),
+                            ),
+                            color: AppColors.primaryColor,
                           ),
-                          color: AppColors.primaryColor,
+                          child: controller.isRemember.value
+                              ? Icon(
+                                  Icons.check,
+                                  color: AppColors.white,
+                                  size: 16,
+                                )
+                              : null,
                         ),
                       ),
                       boxWidth10(),
                       AppTextButton(
                         text: "Remember Me",
-                        onTap: () {},
+                        onTap: () {
+                          controller.toggle();
+                        },
                         fontWeight: fontWeight400(),
                         textSize: fontSize16(),
                       ),
