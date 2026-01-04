@@ -105,22 +105,33 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         ? Colors.green
         : AppColors.textfieldBorder;
 
-    if (widget.isPassword) {
-      return Obx(
-        () => _buildTextField(
-          hasError,
-          isReadOnly,
-          activeBorderColor,
-          obscureText: !_visibilityController.isVisible.value,
-        ),
-      );
-    }
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (widget.isTitle == true && widget.title != null)
+          CustomText(
+            text: widget.title!,
+            fontSize: fontSize12(),
+            fontWeight: fontWeight400(),
+          ),
 
-    return _buildTextField(
-      hasError,
-      isReadOnly,
-      activeBorderColor,
-      obscureText: false,
+        boxHight6(),
+        widget.isPassword
+            ? Obx(
+                () => _buildTextField(
+                  hasError,
+                  isReadOnly,
+                  activeBorderColor,
+                  obscureText: !_visibilityController.isVisible.value,
+                ),
+              )
+            : _buildTextField(
+                hasError,
+                isReadOnly,
+                activeBorderColor,
+                obscureText: false,
+              ),
+      ],
     );
   }
 
@@ -131,9 +142,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
     required bool obscureText,
   }) {
     return SizedBox(
-      height: hasError
-          ? getHeight(75, maxHeight: 85)
-          : getHeight(56, maxHeight: 75),
+      height: hasError ? getHeight(85) : getHeight(56),
       child: TextFormField(
         focusNode: _focusNode,
         controller: widget.controller,
@@ -172,14 +181,13 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         ),
 
         decoration: InputDecoration(
-          isDense: true,
           hintText: widget.hintext,
           floatingLabelBehavior: hasError
               ? FloatingLabelBehavior.always
               : FloatingLabelBehavior.auto,
 
           hintStyle: GoogleFonts.roboto(
-            fontSize: getWidth(15),
+            fontSize: getWidth(14),
             fontWeight: FontWeight.w400,
             color: AppColors.hintText.withValues(alpha: 0.3),
           ),
@@ -216,7 +224,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
               : null,
 
           contentPadding: const EdgeInsets.symmetric(
-            vertical: 12,
+            vertical: 16,
             horizontal: 16,
           ),
 

@@ -37,15 +37,15 @@ class CustomSubmitButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: borderRadius ?? defaultRadius(),
+      borderRadius: borderRadius ?? radius10(),
       child: Material(
         color: Colors.transparent,
-        borderRadius: borderRadius ?? defaultRadius(),
+        borderRadius: borderRadius ?? radius10(),
         child: Ink(
           decoration: BoxDecoration(
             color: (bgColor ?? AppColors.primaryColor),
 
-            borderRadius: borderRadius ?? defaultRadius(),
+            borderRadius: borderRadius ?? radius10(),
             border: Border.all(color: border ?? AppColors.primaryColor),
             // boxShadow: [
             //   BoxShadow(
@@ -57,7 +57,7 @@ class CustomSubmitButton extends StatelessWidget {
             // ],
           ),
           child: InkWell(
-            borderRadius: borderRadius ?? defaultRadius(),
+            borderRadius: borderRadius ?? radius10(),
             splashColor: Colors.white.withValues(alpha: .6),
             onTap: onTap,
             child: Container(
@@ -65,7 +65,7 @@ class CustomSubmitButton extends StatelessWidget {
                 shape: boxShape ?? BoxShape.rectangle,
                 color: Colors.transparent,
               ),
-              height: height ?? getHeight(48),
+              height: height ?? getHeight(56),
               width: width ?? double.infinity,
               alignment: Alignment.center,
               child: Row(

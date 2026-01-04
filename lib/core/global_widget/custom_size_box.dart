@@ -23,7 +23,7 @@ SizedBox boxHight6() {
 }
 
 SizedBox boxHight10() {
-  return SizedBox(height: getHeight(16));
+  return SizedBox(height: getHeight(10));
 }
 
 SizedBox boxHight12() {
@@ -31,7 +31,7 @@ SizedBox boxHight12() {
 }
 
 SizedBox boxHight16() {
-  return SizedBox(height: getHeight(10));
+  return SizedBox(height: getHeight(16));
 }
 
 SizedBox boxWidth4() {
@@ -96,6 +96,10 @@ BorderRadius radius4() {
 
 BorderRadius radius8() {
   return BorderRadius.circular(getWidth(8));
+}
+
+BorderRadius radius10() {
+  return BorderRadius.circular(getWidth(10));
 }
 
 BorderRadius radius12() {
