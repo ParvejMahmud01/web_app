@@ -101,7 +101,10 @@ class LoginScreen extends StatelessWidget {
                         CustomSubmitButton(
                           text: "Login",
                           onTap: () {
-                            if (formKey.currentState!.validate()) {}
+                            // if (formKey.currentState!.validate()) {
+                            //   Get.toNamed(AppRoutes.dashboard);
+                            // }
+                            Get.toNamed(AppRoutes.dashboard);
                           },
                         ),
                       ],
